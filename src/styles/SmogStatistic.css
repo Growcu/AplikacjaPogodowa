@@ -1,0 +1,23 @@
+.statistic {
+    width: 80%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px 2px black;
+}
+
+.statistic h3 {
+    font-size: 2.5em;
+}
+
+@media (orientation: landscape) {
+
+    .statistic {
+        height: 70%;
+        width: 45%;
+    }
+}
