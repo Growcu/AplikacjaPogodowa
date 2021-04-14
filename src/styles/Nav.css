@@ -80,3 +80,39 @@
         height: 18%;
     }
 }
+
+@media (orientation: portrait) and (min-width: 600px) {
+    .hamburger-icon {
+        width: 60px;
+        height: 50px;
+        right: 30px;
+        top: 20px;
+    }
+
+    .line {
+        border: 4px solid white;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 820px) {
+    .hamburger-icon {
+        width: 60px;
+        height: 50px;
+        right: 30px;
+        top: 20px;
+    }
+
+    .line {
+        border: 4px solid white;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+    .nav {
+        height: 13%;
+    }
+
+    .hamburger-icon {
+        display: none;
+    }
+}
