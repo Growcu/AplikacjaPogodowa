@@ -10,13 +10,15 @@ const FindWeather = () => {
     const handleSetIsVisible = () => setIsVisible(!isVisble);
 
     return (
-        <div className="find-weather-page">
+        <div className="page">
             <h2 className="title-page">Find Weather</h2>
             <div className="find-container">
                 <input type="text" className="find-input" placeholder="Name" />
                 <button type="button" className="find-button" onClick={handleSetIsVisible}>Find</button>
             </div>
-            {isVisble ? <Card /> : null}
+            <div className="find-weather-page">
+                {isVisble ? <Card /> : null}
+            </div>
         </div>
     );
 };

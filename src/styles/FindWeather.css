@@ -1,24 +1,16 @@
 .find-weather-page {
-    margin-top: 3%;
-    flex-grow: 1;
+    max-height: 80%;
     width: 95%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
-}
-
-.title-page {
-    flex-basis: 5%;
-    text-align: center;
-    font-size: 3em;
-    font-weight: 400;
-    color: white;
+    flex-grow: 1;
 }
 
 .find-container {
-    margin-top: 3%;
-    flex-basis: 10%;
+    margin: 3% 0;
+    min-height: 6%;
     width: 80%;
     display: flex;
     align-items: center;
@@ -27,7 +19,7 @@
 
 .find-input {
     flex-basis: 60%;
-    height: 50%;
+    height: 100%;
     padding: 0 5px;
     border: 2px solid white;
     background-color: transparent;
@@ -38,7 +30,7 @@
 
 .find-button {
     flex-basis: 20%;
-    height: 50%;
+    height: 100%;
     padding: 0 20px;
     border: none;
     border-radius: 10px;
@@ -54,19 +46,15 @@
 
 @media (orientation: landscape) {
     .find-weather-page {
-        margin-top: 0;
-        padding-bottom: 2%;
         width: 80%;
-    }
-
-    .title-page {
-        margin-top: 1%;
-        font-size: 2.5em;
+        max-height: 60%;
+        margin-top: 0;
+        margin-bottom: 2%;
     }
 
     .find-container {
         margin-top: 1%;
-        flex-basis: 15%;
+        min-height: 10%;
         width: 70%;
     }
 }
