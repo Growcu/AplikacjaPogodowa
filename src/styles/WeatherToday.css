@@ -1,7 +1,7 @@
 .weather-today-page {
     width: 95%;
-    margin-top: 3%;
     flex-grow: 1;
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,6 @@
     flex-direction: column;
     align-items: left;
     list-style: none;
-    font-size: 1.7em;
     font-weight: 200;
     flex-wrap: wrap;
     overflow: hidden;
@@ -41,6 +40,7 @@
 
 .weather-today-list-item {
     flex-basis: 30%;
+    font-size: 1.6em;
 }
 
 @media (orientation: landscape) {
@@ -50,6 +50,10 @@
 
     .weather-today {
         height: 70%;
-        width: 45%;
+        width: 50%;
+    }
+
+    .weather-today-list-item {
+        font-size: 1.8em;
     }
 }

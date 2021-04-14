@@ -21,16 +21,21 @@
     align-items: left;
     flex-wrap: wrap;
     list-style: none;
-    font-size: 1.2em;
 }
 
 .forecast-element-list-item {
     height: 33%;
+    font-size: 1.2em;
+    font-weight: 200;
 }
 
 @media (orientation: landscape) {
     .forecast-element {
         width: 45%;
         height: 40%;
+    }
+
+    .forecast-element-list-item {
+        font-size: 1.3em;
     }
 }

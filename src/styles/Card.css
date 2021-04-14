@@ -1,7 +1,7 @@
 .card {
-    margin-top: 8%;
-    flex-basis: 60%;
     width: 70%;
+    flex-basis: 60%;
+    margin-top: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,10 +30,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
     list-style: none;
     font-size: 1.5em;
     font-weight: 200;
-    flex-wrap: wrap;
 }
 
 .icon {
@@ -47,8 +47,8 @@
 
 @media (orientation: landscape) {
     .card {
-        margin-top: 1%;
         height: 95%;
+        margin-top: 1%;
     }
 
     .card-title {
@@ -60,9 +60,10 @@
     }
 
     .card-list {
-        margin-top: 0;
-        max-height: 60%;
+        height: 70%;
+        max-height: 80%;
         width: 60%;
+        margin-top: 0;
         align-items: flex-start;
         flex-wrap: wrap;
         overflow: hidden;
@@ -73,8 +74,8 @@
     }
 
     .icon {
-        margin-top: 0;
         width: 20%;
+        margin-top: 0;
     }
 
 }
@@ -82,5 +83,10 @@
 @media (orientation: landscape) and (min-width: 768px) {
     .card {
         width: 95%;
+    }
+
+    .icon {
+        width: 30%;
+        margin-top: 0;
     }
 }
