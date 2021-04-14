@@ -16,8 +16,9 @@ const Card = () => {
                 <li className="card-list-item">Wind: 5km/h</li>
                 <li className="card-list-item">Temp Max: 27C</li>
                 <li className="card-list-item">Temp Max: 19C</li>
-                <li className="card-list-item icon"><img src={Icon} alt="ikona" /></li>
+                {/* <li className="card-list-item icon"><img src={Icon} alt="ikona" /></li> */}
             </ul>
+            <div className="icon"><img src={Icon} alt="ikona" /></div>
         </div>
     );
 };
