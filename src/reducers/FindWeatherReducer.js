@@ -8,6 +8,7 @@ const defaultObject = {
     tempMax: '32',
     tempMin: '18',
     speed: '2',
+    icon: '11d',
 };
 
 const findWeatherReducer = (state = defaultObject, action) => {

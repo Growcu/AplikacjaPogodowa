@@ -1,18 +1,13 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
 import { useSelector } from 'react-redux';
 
 import '../styles/Card.css';
 
-import Icon from '../icon/01d.png';
-
 const Card = () => {
-    const data = useSelector((store) => store.findWeather);
-
+    const findWeatherData = useSelector((store) => store.findWeather);
     const {
-        city, temp, pressure, humidity, speed, tempMax, tempMin,
-    } = data;
-
+        city, temp, pressure, humidity, speed, tempMax, tempMin, icon,
+    } = findWeatherData;
     return (
         <div className="card">
             <h3 className="card-title">{city}</h3>
@@ -25,7 +20,7 @@ const Card = () => {
                     <li className="card-list-item">{`Max: ${tempMax}C`}</li>
                     <li className="card-list-item">{`Min: ${tempMin}C`}</li>
                 </ul>
-                <div className="icon"><img src={Icon} alt="ikona" /></div>
+                <div className="icon"><img src={`./icons/${icon}.png`} alt="ikona" /></div>
             </div>
         </div>
     );

@@ -6,9 +6,7 @@ import '../styles/FindWeather.css';
 
 const FindWeather = () => {
     const [isVisble, setIsVisible] = useState(false);
-
     const handleSetIsVisible = () => setIsVisible(!isVisble);
-
     return (
         <div className="page">
             <h2 className="title-page">Find Weather</h2>

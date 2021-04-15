@@ -6,7 +6,6 @@ import '../styles/Nav.css';
 const Nav = () => {
     const [isVisibleNav, setIsVisibleNav] = useState(false);
     const [isCrossed, setIsCrossed] = useState(false);
-
     const handleShowNav = () => {
         setIsVisibleNav(!isVisibleNav);
         setIsCrossed(!isCrossed);

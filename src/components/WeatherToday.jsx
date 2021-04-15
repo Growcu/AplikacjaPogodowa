@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +10,6 @@ const WeatherToday = () => {
     const {
         city, temp, pressure, humidity, tempMax, tempMin, speed,
     } = weatherToday.weather;
-
     return (
         <div className="page">
             <h2 className="title-page">Weather Today</h2>
