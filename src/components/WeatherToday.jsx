@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable no-undef */
+/* eslint-disable consistent-return */
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import SmogStatistic from './SmogStatistic';
@@ -10,6 +12,29 @@ const WeatherToday = () => {
     const {
         city, temp, pressure, humidity, tempMax, tempMin, speed,
     } = weatherToday.weather;
+
+    const getLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const currentLocation = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                };
+                console.log(currentLocation);
+            }, () => {
+                const errorMessage = 'We can not read your location now';
+                return errorMessage;
+            });
+        } else {
+            const errorMessage = 'We can not find "gelocation" in navigator';
+            return errorMessage;
+        }
+    };
+
+    useEffect(() => (
+        getLocation()
+    ), []);
+
     return (
         <div className="page">
             <h2 className="title-page">Weather Today</h2>
