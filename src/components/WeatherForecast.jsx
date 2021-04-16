@@ -4,10 +4,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { searchForecast } from '../actions/ForecastActions';
+
 import ForecastElement from './ForecastElement';
 
 import '../styles/WeatherForecast.css';
-import { searchForecast } from '../actions/ForecastActions';
 
 const WeatherForecast = () => {
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const WeatherForecast = () => {
                 return errorMessage;
             });
         } else {
-            const errorMessage = 'We can not find "gelocation" in navigator';
+            const errorMessage = 'We can not find "geolocation" in navigator';
             return errorMessage;
         }
     };

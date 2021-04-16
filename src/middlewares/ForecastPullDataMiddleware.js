@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 
 import { SEARCH_FORECAST } from '../actions/ForecastActions';
@@ -8,9 +9,7 @@ const middlewarePullingData = () => (next) => async (action) => {
     const configurePayload = (res) => {
         switch (type) {
         case SEARCH_FORECAST: {
-            // eslint-disable-next-line camelcase
             const { timezone_offset, daily } = res.data;
-
             action.payload = {
                 timezone_offset,
                 daily,

@@ -1,11 +1,11 @@
 import { applyMiddleware, createStore } from 'redux';
-import middlewarePullingData from '../middlewares/middlewarePullingData';
+import ForecastPullDataMiddleware from '../middlewares/ForecastPullDataMiddleware';
 
 import RootReducer from '../reducers/RootReducer';
 
 const store = createStore(
     RootReducer,
-    applyMiddleware(middlewarePullingData),
+    applyMiddleware(ForecastPullDataMiddleware),
 );
 
 export default store;
