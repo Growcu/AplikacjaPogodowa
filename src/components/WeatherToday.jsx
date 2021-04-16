@@ -2,10 +2,12 @@
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 import { searchCurrentWeatherInfo, searchPollutionInfo } from '../actions/WeatherTodayActions';
 
 import SmogStatistic from './SmogStatistic';
+import alertHelper from '../helpers/alertHelper';
 
 import '../styles/WeatherToday.css';
 
@@ -15,6 +17,7 @@ const WeatherToday = () => {
     const {
         city, temp, pressure, humidity, tempMax, tempMin, speed,
     } = weatherToday.weather;
+    const history = useHistory();
 
     const getLocation = () => {
         if (navigator.geolocation) {
@@ -26,14 +29,12 @@ const WeatherToday = () => {
                 dispatch(searchCurrentWeatherInfo(currentLocation));
                 dispatch(searchPollutionInfo(currentLocation));
             }, () => {
-                const errorMessage = 'We can not read your location now';
-                alert(errorMessage);
-                return errorMessage;
+                alertHelper('Oops!', 'We can not read your location now', 'error', 'Ok');
+                history.push('/');
             });
         } else {
-            const errorMessage = 'We can not find "geolocation" in navigator';
-            alert(errorMessage);
-            return errorMessage;
+            alertHelper('Oops!', 'We can not find "geolocation" in navigator', 'error', 'Ok');
+            history.push('/');
         }
     };
 

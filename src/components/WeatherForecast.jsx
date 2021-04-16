@@ -3,16 +3,19 @@
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 import { searchForecast } from '../actions/ForecastActions';
 
 import ForecastElement from './ForecastElement';
+import alertHelper from '../helpers/alertHelper';
 
 import '../styles/WeatherForecast.css';
 
 const WeatherForecast = () => {
     const dispatch = useDispatch();
     const forecastData = useSelector((store) => store.forecast);
+    const history = useHistory();
 
     const getLocation = () => {
         if (navigator.geolocation) {
@@ -23,14 +26,12 @@ const WeatherForecast = () => {
                 };
                 dispatch(searchForecast(currentLocation));
             }, () => {
-                const errorMessage = 'We can not read your location now';
-                alert(errorMessage);
-                return errorMessage;
+                alertHelper('Oops!', 'We can not read your location now', 'error', 'Ok');
+                history.push('/');
             });
         } else {
-            const errorMessage = 'We can not find "geolocation" in navigator';
-            alert(errorMessage);
-            return errorMessage;
+            alertHelper('Oops!', 'We can not find "geolocation" in navigator', 'error', 'Ok');
+            history.push('/');
         }
     };
 
