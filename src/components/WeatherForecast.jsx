@@ -2,13 +2,15 @@
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ForecastElement from './ForecastElement';
 
 import '../styles/WeatherForecast.css';
+import { searchForecast } from '../actions/ForecastActions';
 
 const WeatherForecast = () => {
+    const dispatch = useDispatch();
     const forecastData = useSelector((store) => store.forecast);
 
     const getLocation = () => {
@@ -18,7 +20,7 @@ const WeatherForecast = () => {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
                 };
-                console.log(currentLocation);
+                dispatch(searchForecast(currentLocation));
             }, () => {
                 const errorMessage = 'We can not read your location now';
                 return errorMessage;
@@ -35,7 +37,7 @@ const WeatherForecast = () => {
 
     useEffect(() => (
         getLocation()
-    ));
+    ), []);
 
     return (
         <div className="page">
