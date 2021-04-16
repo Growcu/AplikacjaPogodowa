@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { SEARCH_FORECAST } from '../actions/ForecastActions';
 
-const middlewarePullingData = () => (next) => async (action) => {
+const ForecastPullDataMiddleware = () => (next) => async (action) => {
     const { type } = action;
 
     const configurePayload = (res) => {
@@ -30,4 +30,4 @@ const middlewarePullingData = () => (next) => async (action) => {
     }
     next(action);
 };
-export default middlewarePullingData;
+export default ForecastPullDataMiddleware;
