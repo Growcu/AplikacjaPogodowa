@@ -24,10 +24,12 @@ const WeatherForecast = () => {
                 dispatch(searchForecast(currentLocation));
             }, () => {
                 const errorMessage = 'We can not read your location now';
+                alert(errorMessage);
                 return errorMessage;
             });
         } else {
             const errorMessage = 'We can not find "geolocation" in navigator';
+            alert(errorMessage);
             return errorMessage;
         }
     };

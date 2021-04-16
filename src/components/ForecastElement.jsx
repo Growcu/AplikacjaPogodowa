@@ -16,7 +16,7 @@ const ForecastElement = ({ data }) => {
                 <li className="forecast-element-list-item">{`Humidity: ${humidity}%`}</li>
                 <li className="forecast-element-list-item">{`Wind: ${wind}km/h`}</li>
                 <li className="forecast-element-list-item">{`Max: ${tempMax}C`}</li>
-                <li className="forecast-element-list-item">{`Min: ${tempMin}hPa`}</li>
+                <li className="forecast-element-list-item">{`Min: ${tempMin}C`}</li>
             </ul>
         </div>
     );
