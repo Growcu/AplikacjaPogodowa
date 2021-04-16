@@ -2,13 +2,16 @@
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { searchForecast } from '../actions/ForecastActions';
 
 import ForecastElement from './ForecastElement';
 
 import '../styles/WeatherForecast.css';
 
 const WeatherForecast = () => {
+    const dispatch = useDispatch();
     const forecastData = useSelector((store) => store.forecast);
 
     const getLocation = () => {
@@ -18,13 +21,13 @@ const WeatherForecast = () => {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
                 };
-                console.log(currentLocation);
+                dispatch(searchForecast(currentLocation));
             }, () => {
                 const errorMessage = 'We can not read your location now';
                 return errorMessage;
             });
         } else {
-            const errorMessage = 'We can not find "gelocation" in navigator';
+            const errorMessage = 'We can not find "geolocation" in navigator';
             return errorMessage;
         }
     };
@@ -35,7 +38,7 @@ const WeatherForecast = () => {
 
     useEffect(() => (
         getLocation()
-    ));
+    ), []);
 
     return (
         <div className="page">
