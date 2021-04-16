@@ -1,11 +1,11 @@
 import { applyMiddleware, createStore } from 'redux';
-import middlewarePullingData from '../middlewares/middlewarePullingData';
+import WeatherTodayPullDataMiddleware from '../middlewares/WeatherTodayPullDataMiddleware';
 
 import RootReducer from '../reducers/RootReducer';
 
 const store = createStore(
     RootReducer,
-    applyMiddleware(middlewarePullingData),
+    applyMiddleware(WeatherTodayPullDataMiddleware),
 );
 
 export default store;

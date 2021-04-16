@@ -1,16 +1,15 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 
 import { SEARCH_CURRENT_WEATHER_INFO, SEARCH_POLLUTION_INFO } from '../actions/WeatherTodayActions';
 
-const middlewarePullingData = () => (next) => async (action) => {
+const WeatherTodayPullDataMiddleware = () => (next) => async (action) => {
     const { type } = action;
-
     const configurePayload = (res) => {
         switch (type) {
         case SEARCH_CURRENT_WEATHER_INFO: {
             const { main, wind, name } = res.data;
             const {
-                // eslint-disable-next-line camelcase
                 temp, pressure, humidity, temp_max, temp_min,
             } = main;
             const { speed } = wind;
@@ -60,4 +59,4 @@ const middlewarePullingData = () => (next) => async (action) => {
     }
     next(action);
 };
-export default middlewarePullingData;
+export default WeatherTodayPullDataMiddleware;

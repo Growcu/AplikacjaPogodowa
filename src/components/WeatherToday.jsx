@@ -30,7 +30,7 @@ const WeatherToday = () => {
                 return errorMessage;
             });
         } else {
-            const errorMessage = 'We can not find "gelocation" in navigator';
+            const errorMessage = 'We can not find "geolocation" in navigator';
             return errorMessage;
         }
     };
