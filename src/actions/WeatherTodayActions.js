@@ -9,7 +9,7 @@ export const searchCurrentWeatherInfo = ({ latitude, longitude }) => ({
     },
 });
 
-export const searchLocation = ({ latitude, longitude }) => ({
+export const searchPollutionInfo = ({ latitude, longitude }) => ({
     type: SEARCH_POLLUTION_INFO,
     payload: {
         latitude,

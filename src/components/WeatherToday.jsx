@@ -1,13 +1,16 @@
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { searchCurrentWeatherInfo, searchPollutionInfo } from '../actions/WeatherTodayActions';
 
 import SmogStatistic from './SmogStatistic';
 
 import '../styles/WeatherToday.css';
 
 const WeatherToday = () => {
+    const dispatch = useDispatch();
     const weatherToday = useSelector((store) => store.weatherToday);
     const {
         city, temp, pressure, humidity, tempMax, tempMin, speed,
@@ -20,7 +23,8 @@ const WeatherToday = () => {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
                 };
-                console.log(currentLocation);
+                dispatch(searchCurrentWeatherInfo(currentLocation));
+                dispatch(searchPollutionInfo(currentLocation));
             }, () => {
                 const errorMessage = 'We can not read your location now';
                 return errorMessage;
