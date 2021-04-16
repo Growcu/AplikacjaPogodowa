@@ -1,5 +1,8 @@
+/* eslint-disable camelcase */
 /* eslint-disable array-callback-return */
 import { SEARCH_FORECAST } from '../actions/ForecastActions';
+
+import timeConverter from '../modules/timeConverter';
 
 const defaultObject = [];
 
@@ -7,20 +10,25 @@ const forecastReducer = (state = defaultObject, action) => {
     const { type, payload } = action;
     switch (type) {
     case SEARCH_FORECAST: {
-        const { daily } = payload;
+        const { daily, timezone_offset } = payload;
 
         const onlyFourDays = daily.filter((item, index) => index < 4);
 
-        const forecast = onlyFourDays.map((item) => (
-            {
-                temp: item.temp.day,
-                tempMax: item.temp.max,
-                tempMin: item.temp.min,
-                pressure: item.pressure,
-                humidity: item.humidity,
-                wind: item.wind_speed,
-            }
-        ));
+        const forecast = onlyFourDays.map((item) => {
+            const {
+                dt, temp, pressure, humidity, wind_speed,
+            } = item;
+            const date = timeConverter(dt, timezone_offset);
+            return {
+                temp: temp.day,
+                tempMax: temp.max,
+                tempMin: temp.min,
+                wind: wind_speed,
+                pressure,
+                humidity,
+                date,
+            };
+        });
         return forecast;
     }
     default:

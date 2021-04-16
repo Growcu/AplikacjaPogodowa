@@ -5,11 +5,11 @@ import '../styles/ForecastElement.css';
 
 const ForecastElement = ({ data }) => {
     const {
-        temp, pressure, humidity, wind, tempMax, tempMin,
+        temp, pressure, humidity, wind, tempMax, tempMin, date,
     } = data;
     return (
         <div className="forecast-element">
-            <h3 className="forecast-date">Date</h3>
+            <h3 className="forecast-date">{date}</h3>
             <ul className="forecast-element-list">
                 <li className="forecast-element-list-item">{`Temp: ${temp}C`}</li>
                 <li className="forecast-element-list-item">{`Pressure: ${pressure}hPa`}</li>
