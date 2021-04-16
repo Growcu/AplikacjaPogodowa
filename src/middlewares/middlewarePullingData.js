@@ -27,6 +27,7 @@ const middlewarePullingData = () => (next) => async (action) => {
                 pressure,
                 humidity,
                 speed,
+                errorMessage: '',
             };
         } break;
         default:
@@ -36,9 +37,15 @@ const middlewarePullingData = () => (next) => async (action) => {
     switch (type) {
     case FIND_WEATHER: {
         const { city } = action.payload;
-        await axios
-            .post(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
-            .then((response) => configurePayaload(response));
+        try {
+            await axios
+                .post(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
+                .then((response) => configurePayaload(response));
+        } catch (error) {
+            action.payload = {
+                error: 'Check your city name',
+            };
+        }
     } break;
     default:
     }
