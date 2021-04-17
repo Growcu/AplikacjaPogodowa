@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { FIND_WEATHER } from '../actions/FindWeatherActions';
 
-const findWeatherPullingData = () => (next) => async (action) => {
+const findWeatherPullingDataMiddleware = () => (next) => async (action) => {
     const { type } = action;
     const configurePayaload = (res) => {
         switch (type) {
@@ -41,4 +41,4 @@ const findWeatherPullingData = () => (next) => async (action) => {
     }
     next(action);
 };
-export default findWeatherPullingData;
+export default findWeatherPullingDataMiddleware;
