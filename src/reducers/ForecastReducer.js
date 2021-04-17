@@ -16,8 +16,9 @@ const forecastReducer = (state = defaultObject, action) => {
 
         const forecast = onlyFourDays.map((item) => {
             const {
-                dt, temp, pressure, humidity, wind_speed,
+                dt, temp, pressure, humidity, wind_speed, weather,
             } = item;
+            const { icon } = weather[0];
             const date = timeConverterHelper(dt, timezone_offset);
             return {
                 temp: temp.day,
@@ -27,6 +28,7 @@ const forecastReducer = (state = defaultObject, action) => {
                 pressure,
                 humidity,
                 date,
+                icon,
             };
         });
         return forecast;

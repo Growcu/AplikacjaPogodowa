@@ -5,7 +5,7 @@ import rounderValueHelper from '../helpers/rounderValueHelper';
 import '../styles/ForecastElement.css';
 
 const ForecastElement = ({ data }) => {
-    const { date } = data;
+    const { date, icon } = data;
     const roundedValues = rounderValueHelper(data);
     const [
         temp, pressure, humidity, speed, tempMax, tempMin,
@@ -20,6 +20,7 @@ const ForecastElement = ({ data }) => {
                 <li className="forecast-element-list-item">{`Wind: ${speed}km/h`}</li>
                 <li className="forecast-element-list-item">{`Max: ${tempMax}°C`}</li>
                 <li className="forecast-element-list-item">{`Min: ${tempMin}°C`}</li>
+                <li className="forecast-element-list-item"><img src={`./icons/${icon}.png`} alt="icon" /></li>
             </ul>
         </div>
     );
