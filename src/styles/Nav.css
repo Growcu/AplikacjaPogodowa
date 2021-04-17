@@ -1,5 +1,5 @@
 .nav {
-    height: 0%;
+    height: 0;
     width: 100%;
     background: rgb(115, 0, 186);
     box-shadow: 0 0 15px 2px rgb(115, 0, 186);
@@ -9,11 +9,11 @@
 }
 
 .nav.visible {
-    height: 10%;
+    height: 40%;
 }
 
 .nav-list {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -77,7 +77,7 @@
     }
 
     .nav.visible {
-        height: 18%;
+        height: 60%;
     }
 }
 
