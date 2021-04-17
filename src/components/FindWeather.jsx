@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 import { findWeather } from '../actions/FindWeatherActions';
 import Card from './Card';
@@ -14,9 +15,19 @@ const FindWeather = () => {
     const handleChangeCity = (event) => setCityInput(event.target.value);
 
     const downloadData = () => {
-        const newCity = { city: cityInput };
-        dispatch(findWeather(newCity));
-        setIsVisible(true);
+        axios
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
+            .then((response) => {
+                if (response.status === 200) {
+                    const newCity = { city: cityInput };
+                    dispatch(findWeather(newCity));
+                    setIsVisible(true);
+                }
+            })
+            .catch(() => {
+                console.log('Nie ma takiego miasta');
+                setCityInput('');
+            });
     };
     return (
         <div className="page">
