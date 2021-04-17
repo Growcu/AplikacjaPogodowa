@@ -1,4 +1,4 @@
-const timeReader = (time, timezone) => {
+const timeConverterHelper = (time, timezone) => {
     const timeInMiliseconds = (time + timezone) * 1000;
     const currentTime = new Date(timeInMiliseconds);
 
@@ -7,4 +7,4 @@ const timeReader = (time, timezone) => {
 
     return `${day}.${month}`;
 };
-export default timeReader;
+export default timeConverterHelper;

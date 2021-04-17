@@ -2,7 +2,7 @@
 /* eslint-disable array-callback-return */
 import { SEARCH_FORECAST } from '../actions/ForecastActions';
 
-import timeConverter from '../modules/timeConverter';
+import timeConverterHelper from '../helpers/timeConverterHelper';
 
 const defaultObject = [];
 
@@ -18,7 +18,7 @@ const forecastReducer = (state = defaultObject, action) => {
             const {
                 dt, temp, pressure, humidity, wind_speed,
             } = item;
-            const date = timeConverter(dt, timezone_offset);
+            const date = timeConverterHelper(dt, timezone_offset);
             return {
                 temp: temp.day,
                 tempMax: temp.max,
