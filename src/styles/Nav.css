@@ -109,7 +109,7 @@
 
 @media (orientation: landscape) and (min-width: 1024px) {
     .nav {
-        height: 13%;
+        height: 60%;
     }
 
     .hamburger-icon {
