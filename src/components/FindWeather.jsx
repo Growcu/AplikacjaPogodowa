@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
-import { findWeather } from '../actions/FindWeatherActions';
 import Card from './Card';
+import alertHelper from '../helpers/alertHelper';
+import { findWeather } from '../actions/FindWeatherActions';
 
 import '../styles/FindWeather.css';
 
@@ -25,7 +26,7 @@ const FindWeather = () => {
                 }
             })
             .catch(() => {
-                console.log('Nie ma takiego miasta');
+                alertHelper('Warning!', 'This city is not exist', 'warning', 'Ok');
                 setCityInput('');
             });
     };
