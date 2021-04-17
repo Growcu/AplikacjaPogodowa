@@ -1,48 +1,8 @@
 import { SEARCH_CURRENT_WEATHER_INFO, SEARCH_POLLUTION_INFO } from '../actions/WeatherTodayActions';
 
 const defaultObject = {
-    weather: {
-        city: 'Pszczyna',
-        temp: '29',
-        pressure: '990',
-        humidity: '20',
-        tempMax: '40',
-        tempMin: '25',
-        speed: '0',
-    },
-    airPollution: [{
-        name: 'CO',
-        uv: 201,
-    },
-    {
-        name: 'NO',
-        uv: 20,
-    },
-    {
-        name: 'NO2',
-        uv: 300,
-    },
-    {
-        name: 'O3',
-        uv: 100,
-    },
-    {
-        name: 'SO3',
-        uv: 150,
-    },
-    {
-        name: 'PM2',
-        uv: 250,
-    },
-    {
-        name: 'PM10',
-        uv: 90,
-    },
-    {
-        name: 'NH3',
-        uv: 40,
-    },
-    ],
+    weather: {},
+    airPollution: [],
 };
 
 const weatherTodayReducer = (state = defaultObject, action) => {
