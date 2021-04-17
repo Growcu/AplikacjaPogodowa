@@ -18,7 +18,7 @@ const SmogStatistic = () => {
                 <BarChart data={airPollution}>
                     <XAxis dataKey="name" />
                     <YAxis />
-                    <Bar type="monotone" dataKey="uv" barSize={10} fill="#7100b8" />
+                    <Bar type="monotone" dataKey="uv" barSize={15} fill="#7100b8" />
                 </BarChart>
             </ResponsiveContainer>
         </div>
