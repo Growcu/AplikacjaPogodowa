@@ -29,16 +29,12 @@ const weatherTodayReducer = (state = defaultObject, action) => {
     }
     case SEARCH_POLLUTION_INFO: {
         const {
-            co, no, no2, o3, so2, pm2, pm10, nh3,
+            co, no2, o3, so2, pm2, pm10,
         } = payload;
         let { airPollution } = state;
         airPollution = [{
             name: 'CO',
             uv: co,
-        },
-        {
-            name: 'NO',
-            uv: no,
         },
         {
             name: 'NO2',
@@ -59,10 +55,6 @@ const weatherTodayReducer = (state = defaultObject, action) => {
         {
             name: 'PM10',
             uv: pm10,
-        },
-        {
-            name: 'NH3',
-            uv: nh3,
         },
         ];
         return {

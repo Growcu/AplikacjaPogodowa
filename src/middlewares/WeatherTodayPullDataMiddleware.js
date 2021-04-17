@@ -25,17 +25,15 @@ const WeatherTodayPullDataMiddleware = () => (next) => async (action) => {
         } break;
         case SEARCH_POLLUTION_INFO: {
             const {
-                co, no, no2, o3, so2, pm2, pm10, nh3,
+                co, no2, o3, so2, pm2, pm10,
             } = res.data.list[0].components;
             action.payload = {
                 co,
-                no,
                 no2,
                 o3,
                 so2,
                 pm2,
                 pm10,
-                nh3,
             };
         } break;
         default:
