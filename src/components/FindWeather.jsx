@@ -1,21 +1,43 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
+import { findWeather } from '../actions/FindWeatherActions';
 import Card from './Card';
 
 import '../styles/FindWeather.css';
 
 const FindWeather = () => {
-    const [isVisble, setIsVisible] = useState(false);
-    const handleSetIsVisible = () => setIsVisible(!isVisble);
+    const dispatch = useDispatch();
+    const [cityInput, setCityInput] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
+
+    const handleChangeCity = (event) => setCityInput(event.target.value);
+
+    const downloadData = () => {
+        axios
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
+            .then((response) => {
+                if (response.status === 200) {
+                    const newCity = { city: cityInput };
+                    dispatch(findWeather(newCity));
+                    setIsVisible(true);
+                }
+            })
+            .catch(() => {
+                console.log('Nie ma takiego miasta');
+                setCityInput('');
+            });
+    };
     return (
         <div className="page">
             <h2 className="title-page">Find Weather</h2>
             <div className="find-container">
-                <input type="text" className="find-input" placeholder="Name" />
-                <button type="button" className="find-button" onClick={handleSetIsVisible}>Find</button>
+                <input type="text" value={cityInput} onChange={handleChangeCity} className="find-input" placeholder="Name" />
+                <button type="button" className="find-button" onClick={downloadData}>Find</button>
             </div>
             <div className="find-weather-page">
-                {isVisble ? <Card /> : null}
+                {isVisible ? <Card /> : null}
             </div>
         </div>
     );
