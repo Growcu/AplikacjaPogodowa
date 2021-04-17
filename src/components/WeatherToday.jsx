@@ -8,16 +8,19 @@ import { searchCurrentWeatherInfo, searchPollutionInfo } from '../actions/Weathe
 
 import SmogStatistic from './SmogStatistic';
 import alertHelper from '../helpers/alertHelper';
+import rounderValueHelper from '../helpers/rounderValueHelper';
 
 import '../styles/WeatherToday.css';
 
 const WeatherToday = () => {
-    const dispatch = useDispatch();
     const weatherToday = useSelector((store) => store.weatherToday);
-    const {
-        city, temp, pressure, humidity, tempMax, tempMin, speed,
-    } = weatherToday.weather;
+    const dispatch = useDispatch();
     const history = useHistory();
+    const { city } = weatherToday.weather;
+    const roundedValues = rounderValueHelper(weatherToday.weather);
+    const [
+        temp, pressure, humidity, speed, tempMax, tempMin,
+    ] = roundedValues;
 
     const getLocation = () => {
         if (navigator.geolocation) {
@@ -49,12 +52,12 @@ const WeatherToday = () => {
                 <div className="weather-today">
                     <h1 className="weather-today-title">{city}</h1>
                     <ul className="weather-today-list">
-                        <li className="weather-today-list-item">{`Temp: ${temp}C`}</li>
+                        <li className="weather-today-list-item">{`Temp: ${temp}°C`}</li>
                         <li className="weather-today-list-item">{`Pressure: ${pressure}hPa`}</li>
                         <li className="weather-today-list-item">{`Humidity: ${humidity}%`}</li>
                         <li className="weather-today-list-item">{`Wind: ${speed}km/h`}</li>
-                        <li className="weather-today-list-item">{`Max: ${tempMax}C`}</li>
-                        <li className="weather-today-list-item">{`Min: ${tempMin}C`}</li>
+                        <li className="weather-today-list-item">{`Max: ${tempMax}°C`}</li>
+                        <li className="weather-today-list-item">{`Min: ${tempMin}°C`}</li>
                     </ul>
                 </div>
                 <SmogStatistic />

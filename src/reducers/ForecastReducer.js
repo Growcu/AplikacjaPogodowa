@@ -23,7 +23,7 @@ const forecastReducer = (state = defaultObject, action) => {
                 temp: temp.day,
                 tempMax: temp.max,
                 tempMin: temp.min,
-                wind: wind_speed,
+                speed: wind_speed,
                 pressure,
                 humidity,
                 date,
