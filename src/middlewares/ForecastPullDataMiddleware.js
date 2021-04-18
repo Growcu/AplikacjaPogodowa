@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable camelcase */
 import axios from 'axios';
+import env from 'react-dotenv';
 
 import { SEARCH_FORECAST } from '../actions/ForecastActions';
 
@@ -23,7 +25,7 @@ const ForecastPullDataMiddleware = () => (next) => async (action) => {
     case SEARCH_FORECAST: {
         const { latitude, longitude } = action.payload;
         await axios
-            .post(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&units=metric&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
+            .post(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&units=metric&appid=${env.API_KEY}`)
             .then((response) => configurePayload(response));
     } break;
     default:

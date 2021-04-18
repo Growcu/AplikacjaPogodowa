@@ -1,6 +1,8 @@
+/* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import env from 'react-dotenv';
 
 import Card from './Card';
 import alertHelper from '../helpers/alertHelper';
@@ -20,7 +22,7 @@ const FindWeather = () => {
 
     const downloadData = () => {
         axios
-            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${env.API_KEY}`)
             .then((response) => {
                 if (response.status === 200) {
                     const newCity = { city: cityInput };

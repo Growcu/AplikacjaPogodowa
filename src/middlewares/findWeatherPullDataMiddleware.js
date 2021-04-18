@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable camelcase */
 import axios from 'axios';
+import env from 'react-dotenv';
 
 import { FIND_WEATHER } from '../actions/FindWeatherActions';
 
@@ -36,7 +38,7 @@ const findWeatherPullingDataMiddleware = () => (next) => async (action) => {
     case FIND_WEATHER: {
         const { city } = action.payload;
         await axios
-            .post(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=971d414e89f3c0b3df147fbb3ad30cb7`)
+            .post(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${env.API_KEY}`)
             .then((response) => configurePayaload(response));
     } break;
     default:
