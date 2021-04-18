@@ -32,11 +32,11 @@ const WeatherToday = () => {
                 dispatch(searchCurrentWeatherInfo(currentLocation));
                 dispatch(searchPollutionInfo(currentLocation));
             }, () => {
-                alertHelper('Oops!', 'We can not read your location now', 'error', 'Ok');
+                alertHelper('Oops!', 'Nie możemy teraz pobrać Twojej lokalizacji', 'error', 'Ok');
                 history.push('/');
             });
         } else {
-            alertHelper('Oops!', 'We can not find "geolocation" in navigator', 'error', 'Ok');
+            alertHelper('Oops!', 'Nie mamy możliwości pobrania Twojej lokalizacji', 'error', 'Ok');
             history.push('/');
         }
     };
@@ -47,7 +47,7 @@ const WeatherToday = () => {
 
     return (
         <div className="page">
-            <h2 className="title-page">Weather Today</h2>
+            <h2 className="title-page">Pogoda Dzisiaj</h2>
             <div className="weather-today-page">
                 <div className="weather-today">
                     <h1 className="weather-today-title">{city}</h1>

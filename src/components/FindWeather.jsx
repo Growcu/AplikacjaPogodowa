@@ -26,16 +26,16 @@ const FindWeather = () => {
                 }
             })
             .catch(() => {
-                alertHelper('Warning!', 'This city is not exist', 'warning', 'Ok');
+                alertHelper('Ostrzeżenie!', 'To miasto nie istnieje', 'warning', 'Ok');
                 setCityInput('');
             });
     };
     return (
         <div className="page">
-            <h2 className="title-page">Find Weather</h2>
+            <h2 className="title-page">Szukaj Pogody</h2>
             <div className="find-container">
-                <input type="text" value={cityInput} onChange={handleChangeCity} className="find-input" placeholder="Name" />
-                <button type="button" className="find-button" onClick={downloadData}>Find</button>
+                <input type="text" value={cityInput} onChange={handleChangeCity} className="find-input" placeholder="Nazwa" />
+                <button type="button" className="find-button" onClick={downloadData}>Szukaj</button>
             </div>
             <div className="find-weather-page">
                 {isVisible ? <Card /> : null}

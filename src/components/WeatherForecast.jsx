@@ -26,11 +26,11 @@ const WeatherForecast = () => {
                 };
                 dispatch(searchForecast(currentLocation));
             }, () => {
-                alertHelper('Oops!', 'We can not read your location now', 'error', 'Ok');
+                alertHelper('Oops!', 'Nie możemy teraz pobrać Twojej lokalizacji', 'error', 'Ok');
                 history.push('/');
             });
         } else {
-            alertHelper('Oops!', 'We can not find "geolocation" in navigator', 'error', 'Ok');
+            alertHelper('Oops!', 'Nie mamy możliwości pobrania Twojej lokalizacji', 'error', 'Ok');
             history.push('/');
         }
     };
@@ -45,7 +45,7 @@ const WeatherForecast = () => {
 
     return (
         <div className="page">
-            <h1 className="title-page">Weather Forecast</h1>
+            <h1 className="title-page">Prognoza Pogody</h1>
             <div className="forecastpage">
                 {listForecastElement()}
             </div>

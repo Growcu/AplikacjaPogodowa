@@ -18,9 +18,9 @@ const Nav = () => {
                 <div className={`line line-three ${isCrossed ? 'isCrossed' : ''}`} />
             </div>
             <ul className="nav-list">
-                <li className="nav-item"><a href="/" className="nav-link">Find</a></li>
-                <li className="nav-item"><a href="/weatherToday" className="nav-link">Today</a></li>
-                <li className="nav-item"><a href="/weatherForecast" className="nav-link">Forecast</a></li>
+                <li className="nav-item"><a href="/" className="nav-link">Szukaj</a></li>
+                <li className="nav-item"><a href="/weatherToday" className="nav-link">Dzisiaj</a></li>
+                <li className="nav-item"><a href="/weatherForecast" className="nav-link">Prognoza</a></li>
             </ul>
         </nav>
     );
