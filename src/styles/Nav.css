@@ -33,6 +33,7 @@
     text-align: center;
     text-decoration: none;
     color: white;
+    transition: .5s;
 }
 
 .nav-item:last-child {
@@ -110,6 +111,10 @@
 @media (orientation: landscape) and (min-width: 1024px) {
     .nav {
         height: 60%;
+    }
+
+    .nav-link:hover {
+        transform: scale(1.2);
     }
 
     .hamburger-icon {

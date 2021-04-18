@@ -8,6 +8,8 @@
     align-items: center;
     flex-grow: 1;
     overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .find-weather-page::-webkit-scrollbar {
@@ -46,6 +48,7 @@
     font-weight: 700;
     font-size: 1.3em;
     color: rgb(115, 0, 186);
+    transition: .5s;
 }
 
 ::placeholder {
@@ -64,6 +67,12 @@
         min-height: 10%;
         width: 70%;
         margin-top: 1%;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+    .find-button:hover {
+        transform: scale(1.2);
     }
 }
 

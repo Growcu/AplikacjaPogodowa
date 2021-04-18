@@ -55,6 +55,7 @@
     font-weight: 700;
     font-size: 1.3em;
     color: rgb(115, 0, 186);
+    transition: .5s;
 }
 
 
@@ -101,5 +102,11 @@
     .icon {
         width: 30%;
         margin-top: 0;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+    .card-more-button:hover {
+        transform: scale(1.2);
     }
 }
