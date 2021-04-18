@@ -1,5 +1,6 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 import Card from './Card';
@@ -10,6 +11,7 @@ import '../styles/FindWeather.css';
 
 const FindWeather = () => {
     const dispatch = useDispatch();
+    const findWeatherData = useSelector((store) => store.findWeather);
     const [cityInput, setCityInput] = useState('');
     const [isVisible, setIsVisible] = useState(false);
 
@@ -30,6 +32,7 @@ const FindWeather = () => {
                 setCityInput('');
             });
     };
+    const listCards = findWeatherData.map((item, index) => <Card data={item} key={index} />);
     return (
         <div className="page">
             <h2 className="title-page">Szukaj Pogody</h2>
@@ -38,7 +41,7 @@ const FindWeather = () => {
                 <button type="button" className="find-button" onClick={downloadData}>Szukaj</button>
             </div>
             <div className="find-weather-page">
-                {isVisible ? <Card /> : null}
+                {isVisible ? listCards : null}
             </div>
         </div>
     );

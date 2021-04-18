@@ -1,6 +1,6 @@
 import { FIND_WEATHER } from '../actions/FindWeatherActions';
 
-const defaultObject = {};
+const defaultObject = [];
 
 const findWeatherReducer = (state = defaultObject, action) => {
     const { type, payload } = action;
@@ -9,9 +9,10 @@ const findWeatherReducer = (state = defaultObject, action) => {
         const {
             city, temp, pressure, humidity, icon, tempMax, tempMin, speed,
         } = payload;
-        return {
+        const newCity = {
             city, temp, pressure, humidity, icon, tempMax, tempMin, speed,
         };
+        return [newCity, ...state];
     }
     default:
         return state;

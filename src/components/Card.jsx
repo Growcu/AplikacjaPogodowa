@@ -1,14 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import rounderValueHelper from '../helpers/rounderValueHelper';
 
 import '../styles/Card.css';
 
-const Card = () => {
-    const findWeatherData = useSelector((store) => store.findWeather);
-    const { city, icon } = findWeatherData;
-    const roundedValues = rounderValueHelper(findWeatherData);
+const Card = ({ data }) => {
+    const { city, icon } = data;
+    const roundedValues = rounderValueHelper(data);
     const [
         temp, pressure, humidity, speed, tempMax, tempMin,
     ] = roundedValues;
