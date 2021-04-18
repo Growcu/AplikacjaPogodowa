@@ -1,12 +1,11 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import rounderValueHelper from '../helpers/rounderValueHelper';
 
 import '../styles/ForecastElement.css';
 
 const ForecastElement = ({ data }) => {
-    const { date, icon } = data;
     const roundedValues = rounderValueHelper(data);
+    const { date, icon } = data;
     const [
         temp, pressure, humidity, speed, tempMax, tempMin,
     ] = roundedValues;

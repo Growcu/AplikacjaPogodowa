@@ -7,12 +7,14 @@ const defaultObject = {
 
 const weatherTodayReducer = (state = defaultObject, action) => {
     const { type, payload } = action;
+
     switch (type) {
     case SEARCH_CURRENT_WEATHER_INFO: {
         const {
             city, temp, pressure, humidity, tempMax, tempMin, speed,
         } = payload;
         let { weather } = state;
+
         weather = {
             city,
             temp,
@@ -22,6 +24,7 @@ const weatherTodayReducer = (state = defaultObject, action) => {
             tempMin,
             speed,
         };
+
         return {
             weather,
             airPollution: state.airPollution,
@@ -32,6 +35,7 @@ const weatherTodayReducer = (state = defaultObject, action) => {
             co, no2, o3, so2, pm2, pm10,
         } = payload;
         let { airPollution } = state;
+
         airPollution = [{
             name: 'CO',
             uv: co,
@@ -57,6 +61,7 @@ const weatherTodayReducer = (state = defaultObject, action) => {
             uv: pm10,
         },
         ];
+
         return {
             weather: state.weather,
             airPollution,

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 import React, { useEffect } from 'react';

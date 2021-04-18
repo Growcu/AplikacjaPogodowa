@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 import rounderValueHelper from '../helpers/rounderValueHelper';
@@ -13,6 +12,8 @@ const Card = ({ data }) => {
         temp, pressure, humidity, speed, tempMax, tempMin,
     ] = roundedValues;
 
+    const showMoreHandle = () => setMoreIsVisible(!moreIsVisible);
+
     const listOfInfo = () => (
         <ul className="card-list">
             <li className="card-list-item">{`Temp: ${temp}°C`}</li>
@@ -23,7 +24,6 @@ const Card = ({ data }) => {
             <li className="card-list-item">{`Min: ${tempMin}°C`}</li>
         </ul>
     );
-    const showMoreHandle = () => setMoreIsVisible(!moreIsVisible);
 
     return (
         <div className="card">

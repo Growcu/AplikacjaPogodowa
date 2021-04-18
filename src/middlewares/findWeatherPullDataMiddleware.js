@@ -5,6 +5,7 @@ import { FIND_WEATHER } from '../actions/FindWeatherActions';
 
 const findWeatherPullingDataMiddleware = () => (next) => async (action) => {
     const { type } = action;
+
     const configurePayaload = (res) => {
         switch (type) {
         case FIND_WEATHER: {
@@ -30,6 +31,7 @@ const findWeatherPullingDataMiddleware = () => (next) => async (action) => {
         default:
         }
     };
+
     switch (type) {
     case FIND_WEATHER: {
         const { city } = action.payload;
@@ -39,6 +41,7 @@ const findWeatherPullingDataMiddleware = () => (next) => async (action) => {
     } break;
     default:
     }
+
     next(action);
 };
 export default findWeatherPullingDataMiddleware;

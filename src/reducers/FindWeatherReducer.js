@@ -4,6 +4,7 @@ const defaultObject = [];
 
 const findWeatherReducer = (state = defaultObject, action) => {
     const { type, payload } = action;
+
     switch (type) {
     case FIND_WEATHER: {
         const {

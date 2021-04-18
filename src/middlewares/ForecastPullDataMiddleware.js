@@ -28,6 +28,7 @@ const ForecastPullDataMiddleware = () => (next) => async (action) => {
     } break;
     default:
     }
+
     next(action);
 };
 export default ForecastPullDataMiddleware;

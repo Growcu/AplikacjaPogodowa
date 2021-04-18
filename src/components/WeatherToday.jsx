@@ -13,11 +13,12 @@ import rounderValueHelper from '../helpers/rounderValueHelper';
 import '../styles/WeatherToday.css';
 
 const WeatherToday = () => {
-    const weatherToday = useSelector((store) => store.weatherToday);
     const dispatch = useDispatch();
     const history = useHistory();
-    const { city } = weatherToday.weather;
+    const weatherToday = useSelector((store) => store.weatherToday);
+
     const roundedValues = rounderValueHelper(weatherToday.weather);
+    const { city } = weatherToday.weather;
     const [
         temp, pressure, humidity, speed, tempMax, tempMin,
     ] = roundedValues;

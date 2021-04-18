@@ -5,6 +5,7 @@ import { SEARCH_CURRENT_WEATHER_INFO, SEARCH_POLLUTION_INFO } from '../actions/W
 
 const WeatherTodayPullDataMiddleware = () => (next) => async (action) => {
     const { type } = action;
+
     const configurePayload = (res) => {
         switch (type) {
         case SEARCH_CURRENT_WEATHER_INFO: {
@@ -55,6 +56,7 @@ const WeatherTodayPullDataMiddleware = () => (next) => async (action) => {
     } break;
     default:
     }
+
     next(action);
 };
 export default WeatherTodayPullDataMiddleware;

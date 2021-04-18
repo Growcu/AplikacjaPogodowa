@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -15,9 +14,9 @@ const FindWeather = () => {
     const [cityInput, setCityInput] = useState('');
     const [isVisible, setIsVisible] = useState(false);
 
-    const listCards = findWeatherData.map((item, index) => <Card data={item} key={index} />);
-
     const handleChangeCity = (event) => setCityInput(event.target.value);
+
+    const listCards = findWeatherData.map((item, index) => <Card data={item} key={index} />);
 
     const downloadData = () => {
         axios

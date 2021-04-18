@@ -8,6 +8,7 @@ const defaultObject = [];
 
 const forecastReducer = (state = defaultObject, action) => {
     const { type, payload } = action;
+
     switch (type) {
     case SEARCH_FORECAST: {
         const { daily, timezone_offset } = payload;
