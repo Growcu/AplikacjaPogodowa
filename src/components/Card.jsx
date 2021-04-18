@@ -30,7 +30,7 @@ const Card = ({ data }) => {
                 {moreIsVisible ? listOfInfo() : null}
                 <div className="icon"><img src={`./icons/${icon}.png`} alt="ikona" /></div>
             </div>
-            <button type="button" onClick={showMoreHandle}>Wiecej...</button>
+            <button type="button" className="card-more-button" onClick={showMoreHandle}>Wiecej...</button>
         </div>
     );
 };
