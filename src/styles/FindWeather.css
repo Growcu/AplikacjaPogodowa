@@ -7,6 +7,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-grow: 1;
+    overflow: scroll;
 }
 
 .find-container {
