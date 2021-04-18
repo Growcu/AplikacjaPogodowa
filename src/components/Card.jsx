@@ -7,11 +7,12 @@ import '../styles/Card.css';
 
 const Card = ({ data }) => {
     const [moreIsVisible, setMoreIsVisible] = useState(false);
-    const { city, icon } = data;
     const roundedValues = rounderValueHelper(data);
+    const { city, icon } = data;
     const [
         temp, pressure, humidity, speed, tempMax, tempMin,
     ] = roundedValues;
+
     const listOfInfo = () => (
         <ul className="card-list">
             <li className="card-list-item">{`Temp: ${temp}°C`}</li>
@@ -23,6 +24,7 @@ const Card = ({ data }) => {
         </ul>
     );
     const showMoreHandle = () => setMoreIsVisible(!moreIsVisible);
+
     return (
         <div className="card">
             <h3 className="card-title">{city}</h3>

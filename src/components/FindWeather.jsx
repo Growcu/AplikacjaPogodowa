@@ -15,6 +15,8 @@ const FindWeather = () => {
     const [cityInput, setCityInput] = useState('');
     const [isVisible, setIsVisible] = useState(false);
 
+    const listCards = findWeatherData.map((item, index) => <Card data={item} key={index} />);
+
     const handleChangeCity = (event) => setCityInput(event.target.value);
 
     const downloadData = () => {
@@ -32,7 +34,6 @@ const FindWeather = () => {
                 setCityInput('');
             });
     };
-    const listCards = findWeatherData.map((item, index) => <Card data={item} key={index} />);
     return (
         <div className="page">
             <h2 className="title-page">Szukaj Pogody</h2>
