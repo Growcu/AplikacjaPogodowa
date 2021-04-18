@@ -33,7 +33,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-width: 820px) {
+@media (orientation: landscape) and (min-width: 830px) {
     html {
         font-size: 20px;
     }

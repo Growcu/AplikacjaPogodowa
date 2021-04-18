@@ -94,7 +94,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-width: 820px) {
+@media (orientation: landscape) and (min-width: 830px) {
     .hamburger-icon {
         width: 60px;
         height: 50px;
