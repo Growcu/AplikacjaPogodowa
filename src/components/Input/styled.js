@@ -2,12 +2,21 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
+  width: 100%;
   box-sizing: border-box;
   border-radius: 30px;
   text-align: left;
   color: #FFFFFF;
   text-transform: uppercase;
   transition: .3s ease-out;
+
+  @media (max-width: 600px) {
+    width: 60%;
+  }
+
+  @media (max-width: 960px) {
+    width: 70%;
+  }
 
   &.primary {
     background: #A6E3E9;
@@ -20,7 +29,7 @@ export const Input = styled.input`
   }
 
   &.large {
-    width: 350px;
+    max-width: 350px;
     height: 50px;
     padding: 25px 12px;
     line-height: 25px;
@@ -28,7 +37,7 @@ export const Input = styled.input`
   }
 
   &.medium {
-    width: 300px;
+    max-width: 300px;
     height: 40px;
     padding: 20px 10px;
     line-height: 20px;
@@ -36,7 +45,7 @@ export const Input = styled.input`
   }
 
   &.small {
-    width: 275px;
+    max-width: 275px;
     height: 35px;
     padding: 20px 10px;
     line-height: 15px;
