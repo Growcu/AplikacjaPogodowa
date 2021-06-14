@@ -12,13 +12,9 @@ export const Nav = styled.nav`
   border-radius: 0 0 30px 30px;
 `;
 
-export const List = styled.ul.attrs((props) => ({
-  indocatorSize: props.indicatorSize,
-}))`
-  position: relative;
+export const List = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-around;
   width: 90%;
   max-width: 350px;
   height: 40px;
@@ -27,31 +23,47 @@ export const List = styled.ul.attrs((props) => ({
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   list-style: none;
+`;
+
+export const Element = styled.li.attrs((props) => ({
+  toElementSize: props.toElementSize,
+}))`
+  height: 100%;
+  max-width: calc(100% / ${(props) => props.toElementSize});
+  flex-grow: 1;
+`;
+
+export const Link = styled.a`
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: 700;
 
   &:before {
     content: '';
     display: block;
     position: absolute;
-    width: calc(100% / ${(props) => props.indicatorSize});
-    height: 100%;
-    left: 0;
+    width: 0;
+    height: 0;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     background: rgba(113, 201, 206, 0.5);
-    border-radius: 20px; 
-  }
-`;
+    border-radius: 20px;
+    transition: 0.3s ease-out;
+    }
 
-export const Element = styled.li`
-  flex-grow: 1;
-  text-align: center;
-  vertical-align: center;
-  line-height: 20px;
-  z-index: 1;
-  
-  & > a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-weight: 700;
+    &:active {
+      :before {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
+
 `;

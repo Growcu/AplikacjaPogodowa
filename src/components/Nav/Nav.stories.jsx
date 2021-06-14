@@ -9,22 +9,17 @@ export default {
 
 export const Default = () => <Nav />;
 
-export const WithChildren = () => (
-  <Nav>
-    <a href="#">Location</a>
-    <a href="#">City</a>
-  </Nav>
-);
+export const WithChildren = () => {
+  const links = [
+    {
+      name: 'City',
+      link: '#',
+    },
+    {
+      name: 'Location',
+      link: '#',
+    },
+  ];
 
-// export const Working = () => {
-//   const [isActive, setIsActive] = useState(false);
-
-//   const handleOnClick = () => setIsActive(!isActive);
-
-//   return (
-//     <Nav>
-//       <a href="#">Location</a>
-//       <a href="#">City</a>
-//     </Nav>
-//   );
-// };
+  return <Nav links={links} />;
+};

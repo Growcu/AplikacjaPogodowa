@@ -2,16 +2,23 @@ import React from 'react';
 
 import * as S from './styled';
 
-const Nav = ({ children }) => {
-  const elementsInNav = (
-    children && children.map((child, index) => <S.Element key={index}>{child}</S.Element>)
+const Nav = ({ links }) => {
+  const howMuchElements = links && links.length;
+
+  const setLinks = (items) => (
+    items.map((item, index) => (
+      <S.Element key={index} toElementSize={howMuchElements}>
+        <S.Link href={item.link} toIndicatorSize={howMuchElements}>
+          {item.name}
+        </S.Link>
+      </S.Element>
+    ))
   );
-  const indicatorSize = children.length;
 
   return (
     <S.Nav>
-      <S.List indicatorSize={indicatorSize}>
-        {elementsInNav}
+      <S.List className="list">
+        {links && setLinks(links)}
       </S.List>
     </S.Nav>
   );
