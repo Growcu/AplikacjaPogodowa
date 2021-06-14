@@ -15,3 +15,8 @@ Next, write command:
 App will be available here: 
 
 `http://localhost:3000`
+
+
+## IMPORTANT INFO
+
+Now I am working on new interface. Wait for it.
