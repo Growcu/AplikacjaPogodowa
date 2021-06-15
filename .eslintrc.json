@@ -15,6 +15,7 @@
     ],
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "react/jsx-props-no-spreading": "off"
   }
 }
